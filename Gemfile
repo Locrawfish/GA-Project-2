@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
 group :development, :test do
   # Use pry with Rails console
   gem 'pry-rails'
@@ -49,3 +50,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  # gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
