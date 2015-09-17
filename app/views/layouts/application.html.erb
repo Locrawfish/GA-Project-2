@@ -21,33 +21,24 @@
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
           <li class="active"><%= link_to 'Home', '/' %></a></li>
           <li><%= link_to 'About', '/about' %></li>
-          <!-- <li><a href="#contact">Contact</a></li> -->
+          <li><%= link_to "Sign Up", '/' %></li>
+          <li><%= link_to "Log In", '/' %></li>
         </ul>
-      </div>
+      </nav>
     </div>
   </nav>
-  <div class="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <%= msg %>
-      <% end %>
-    <% end %>
-
-    <%= yield %>
-  </div>
+  <div class = 'container'>
+    <div class="center jumbotron">
+    <h1>Welcome to the Residual Fare</h1>
+    <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+    <br>
+    <h6>already signed up?</h6>
+    <%= link_to "Log in here", '#', class: "btn" %>
+    </div>
+</div>
 </body>
 </html>
