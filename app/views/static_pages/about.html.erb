@@ -1,4 +1,22 @@
-<div class="page-header">
-  <h1>StaticPages#about</h1>
-</div>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<% provide(:title, 'About') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>About</h1>
+    </div>
+    <div class = 'col-lg-6'>
+    <p>This app aims to allow users to select ingredients they have available, and
+    see potential recipes they can create from those ingredients. This version of
+    the app will also allow users add dietary restrictions, and have individual
+    accounts to save favorited recipes.</p>
+    <br>
+    <p>This app is particularly salient given the increased food waste we face
+    and the climate implications of that waste. It also will allow users to
+    save money; it is estimated food waste cost Americans $161.6 billion in 2010.</p>
+    </div>
+  </body>
+</html>
