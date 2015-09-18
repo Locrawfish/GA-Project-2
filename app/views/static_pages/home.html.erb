@@ -5,8 +5,13 @@
     <title><%= full_title(yield(:title)) %></title>
   </head>
   <body>
-    <div class="page-header">
-      <h1>Home</h1>
+    <div class="center jumbotron">
+    <h1>Welcome to the Residual Fare</h1>
+    <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+    <br>
+    <h6>already signed up?</h6>
+    <br>
+    <%= link_to "Log in here", '#', class: "btn" %>
     </div>
   </body>
 </html>
