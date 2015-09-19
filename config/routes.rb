@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'signup' => 'users#new'
+  resources :users
+
   # match '/about', to: 'static_pages#about', via: 'get'
   # match '/signup', to: 'users#new', via: 'get'
 
