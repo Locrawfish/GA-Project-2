@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+before_action :logged_in_user, except: [:new, :create]
+before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -25,4 +26,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+
+    def verify_correct_user
+       user = User.find_by(id: params[:id])
+       redirect_to root_path, notice: 'Access Denied!' unless current_user?(user)
+     end
 end

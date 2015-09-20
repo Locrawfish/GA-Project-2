@@ -24,13 +24,35 @@ module SessionsHelper
     end
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   # Returns true if the user is logged in, false if not
   def logged_in?
     !current_user.nil?
   end
 
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
+  end
+
   def log_out
+    forget(current_user)
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      redirect_to login_path, notice: "Please sign in."
+    end
+  end
+
+  def store_location
+    session[:return_to] = request.url if request.get?
   end
 end
