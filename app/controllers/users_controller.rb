@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-before_action :logged_in_user, except: [:new, :create]
-before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
+before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+before_action :verify_correct_user, only: [:edit, :update]
   def new
     @user = User.new
   end
@@ -14,9 +14,24 @@ before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Residual Fare!"
-      redirect_to @user
+      redirect_back_or user
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 
@@ -31,4 +46,11 @@ before_action :verify_correct_user, only: [:show, :edit, :update, :destroy]
        user = User.find_by(id: params[:id])
        redirect_to root_path, notice: 'Access Denied!' unless current_user?(user)
      end
+
+     def logged_in_user
+      unless logged_in?
+        store_location
+        redirect_to login_path, notice: "Please sign in."
+      end
+    end
 end
