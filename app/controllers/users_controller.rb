@@ -14,7 +14,7 @@ before_action :verify_correct_user, only: [:edit, :update]
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Residual Fare!"
-      redirect_back_or user
+      redirect_back_or @user
     else
       render 'new'
     end
