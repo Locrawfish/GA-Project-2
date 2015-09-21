@@ -1,0 +1,40 @@
+<% provide(:title, 'Search') %>
+<h1>Search </h1>
+<hr>
+<div class ='col-md-2'>
+  <h3>Search for recipes:</h3>
+  <hr>
+  <%= form_tag("search", method: "get") do %>
+    <%= label_tag(:q, "") %>
+    <%= text_field_tag(:q, @search_text) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+
+</div>
+
+<div class = 'table-responsive col-md-offset-1 col-md-9'>
+    <h3>Search Results for <%= @search_text %></h3>
+      <table class="table col-md-12">
+        <thead>
+            <th></th>
+            <th>Recipe Name:</th>
+            <th>Rating:</th>
+            <th>Total Time:</th>
+            <th>Add to Favorites</th>
+        </thead>
+      <tbody>
+      <% unless @search_result.nil? %>
+        <% @search_result["matches"].each do |result| %>
+        <tr>
+          <td><%= image_tag result ["imageUrlsBySize"]["90"]%></td>
+          <td><h4><%= result["recipeName"] %></h4></td>
+          <td> <%= result["rating"] %></td>
+          <td> <%= result["totalTimeInSeconds"]/60 %> minutes</td>
+          <td></td>
+          <% end %>
+         <% end %>
+       </tr>
+      </tbody>
+    </table>
+</div>
+

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-      <!--<%= link_to "Residual Fare", root_path, id: "logo" %>-->
+      <%= link_to "Residual Fare", root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to 'Home', root_path %></a></li>
@@ -13,7 +13,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Recipes", ''%></li>
+              <li><%= link_to "Recipes", recipes_path, method: "get"%></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>

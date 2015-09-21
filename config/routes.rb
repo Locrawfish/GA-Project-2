@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get 'sessions/new'
 
   root                'static_pages#home'
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+  get 'recipes/search' => 'recipes#search'
   resources :users
+  resources :recipes
+
+  # resources :ingredients
 
   # match '/about', to: 'static_pages#about', via: 'get'
   # match '/signup', to: 'users#new', via: 'get'

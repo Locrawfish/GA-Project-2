@@ -1,0 +1,14 @@
+ <div class="page-header">
+  <%= link_to new_recipe_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+
+  <% end %>
+  <div class = 'container fluid col-lg-4'>
+    <h3>Recipes</h3>
+    <%= form_tag recipes_path, :method => 'get' do %>
+      <%= text_field_tag :recipe, params[:recipe] %>
+      <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </div>
+</div>
+

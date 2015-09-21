@@ -15,10 +15,15 @@ $gray-medium-light: #eaeaea;
 
 html, body {
   height: 100%;
+  // background-image: url("assets/images/background.jpg")
         }
 
 body {
   padding-top: 60px;
+  // background: url("background.jpg");
+  // background-blend-mode: screen;
+  // background-color: gray;
+  // background-size:cover;
 }
 
 section {
