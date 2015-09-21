@@ -3,12 +3,12 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def search
-    @search_text = search_params[:q]
+    @search_text = search_params[:q] || ''
     @search_result = Recipe.search(@search_text) unless @search_text.empty?
   end
 
   def index
-
+    @recipes = Recipe.order(created_at: :desc)
   end
 
   # GET /recipes/1
