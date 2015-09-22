@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-before_action :verify_correct_user, only: [:edit, :update]
+before_action :verify_correct_user, only: [:edit, :update, :destroy]
   def new
     @user = User.new
   end
@@ -33,6 +33,12 @@ before_action :verify_correct_user, only: [:edit, :update]
     else
       render 'edit'
     end
+  end
+
+  def delete
+    @user.destroy
+    redirect_to root_path
+    flash[:success] = "Sorry to see you go. Hope you come back soon!"
   end
 
   private

@@ -6,7 +6,7 @@
             <th></th>
             <th>Recipe Name:</th>
             <th>Total Time</th>
-            <th>Calories per serving</th>
+            <!-- <th>Calories per serving</th> -->
         </thead>
         <tbody>
           <h4><% @recipes.each do |r|%>
@@ -14,7 +14,9 @@
            <td><img src='<%= r.parsed_response['images'][0]['hostedSmallUrl'] %>'></td>
            <td><a href="<%= r.parsed_response['attribution']['url'] %>"><%= r.parsed_response['name'] %></a></td>
            <td><%=r.parsed_response['totalTime']%></td>
-           <td><%=r.parsed_response['nutritionEstimates'][0]['value']%> calories</td>
+           <!-- <td><%#=r.parsed_response['nutritionEstimates'][0]['value']%> calories</td> -->
+
+
            <% end%></h4>
            </tr>
        </tbody>
