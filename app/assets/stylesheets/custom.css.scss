@@ -1,5 +1,9 @@
+// @import "united-variables.scss";
+// @import "united.scss";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:400,700);
+
 
 /* mixins, variables, etc. */
 
@@ -15,15 +19,17 @@ $gray-medium-light: #eaeaea;
 
 html, body {
   height: 100%;
+  font-family: 'Amatic SC', cursive;
   // background-image: url("assets/images/background.jpg")
         }
 
 body {
   padding-top: 60px;
-  // background: url("background.jpg");
-  // background-blend-mode: screen;
-  // background-color: gray;
-  // background-size:cover;
+  background: url("background.jpg");
+  background-blend-mode: screen;
+  background-color: white;
+  background-size:cover;
+  font-size: 2em;
 }
 
 section {
@@ -34,12 +40,17 @@ textarea {
   resize: vertical;
 }
 
+h5{
+  font-size: 2em;
+}
+
 .center {
   text-align: center;
 }
 
 .center h1 {
   margin-bottom: 10px;
+  font-size: 4em;
 }
 .wrapper {
   min-height: 100%;
@@ -48,6 +59,24 @@ textarea {
   margin: 0 auto -63px;
         }
 
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
+/* navigation*/
+
+.nav{
+  font-size: 1.6em;
+}
+
+.dropdown-menu{
+  font-size: .8em;
+}
 /* header */
 
 #logo {
@@ -85,7 +114,7 @@ aside {
       line-height: 1;
     }
     h1 {
-      font-size: 1.4em;
+      font-size: 1.8em;
       text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
