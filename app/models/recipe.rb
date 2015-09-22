@@ -1,9 +1,10 @@
 class Recipe < ActiveRecord::Base
-require "httparty"
-belongs_to :user
-  validates :title, presence: true
 
-  before_save :default_values
+  require "httparty"
+  has_and_belongs_to_many :users
+  validates :api_id, presence: true
+
+
 
   def self.search(ingredient)
 
@@ -14,24 +15,8 @@ belongs_to :user
     url = "#{base_url}?_app_id=#{app_id}&_app_key=#{app_key}"
 
     HTTParty.get ("#{url}&q=#{ingredient}")
-
-    # [
-    #   {
-    #     title: 'Spaghetti',
-    #     description: 'It is delicious!'
-    #   },
-    #   {
-    #     title: 'Lasagna',
-    #     description: 'Yummy'
-    #   }
-    # ]
     end
 
-  private
 
-  def default_values
-    self.completed ||= false
-    nil                           # required so that TX will not rollback!!!
-  end
 
 end

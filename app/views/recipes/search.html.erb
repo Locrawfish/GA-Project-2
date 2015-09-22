@@ -30,7 +30,11 @@
           <td><h4><%= result["recipeName"] %></h4></td>
           <td> <%= result["rating"] %></td>
           <td> <%= result["totalTimeInSeconds"]/60 %> minutes</td>
-          <td><%= @recipe.toggle_completed%> </td>
+          <td><%= form_for(Recipe.new(api_id: result["id"])) do |f|%>
+              <%= f.hidden_field :api_id, value: result["id"] %>
+              <%= f.submit 'Add recipe'%>
+              <% end %>
+          </td>
           <% end %>
          <% end %>
        </tr>

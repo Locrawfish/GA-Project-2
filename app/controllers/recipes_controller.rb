@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  require "httparty"
   # GET /recipes
   # GET /recipes.json
   def search
@@ -8,7 +9,18 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.order(created_at: :desc)
+    @recipes = []
+    user_recipes = current_user.recipes
+    user_recipes.each do |user_recipe|
+      base_url = "http://api.yummly.com/v1/api/recipe"
+      app_id = "a60a3813"
+      app_key = "03a140c9f2bc94ab668e30a025477217"
+      recipe_id = user_recipe.api_id
+
+      url = "#{base_url}/#{recipe_id}?_app_id=#{app_id}&_app_key=#{app_key}"
+
+      @recipes << (HTTParty.get url)
+    end
   end
 
   # GET /recipes/1
@@ -23,6 +35,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes/1/edit
   def edit
+
   end
 
   # POST /recipes
@@ -32,7 +45,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        current_user.recipes << @recipe
+        format.html { redirect_to @recipe, notice: 'Recipe was successfully added.' }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
@@ -73,7 +87,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params[:recipe]
+      params.require(:recipe).permit(:api_id)
     end
 
     def search_params

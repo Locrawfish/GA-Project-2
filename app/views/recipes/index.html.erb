@@ -1,12 +1,24 @@
  <% provide(:title, 'Recipes') %>
  <div class="page-header">
-
-  <div class = 'container fluid col-lg-4'>
-    <h3>Recipes</h3>
-    <%= form_tag recipes_path, :method => 'get' do %>
-      <%= text_field_tag :recipe, params[:recipe] %>
-      <%= submit_tag "Search", :name => nil %>
-    <% end %>
-  </div>
+    <h3>Your recipes</h3>
+      <table class="table col-offset-md-4 col-md-8">
+        <thead>
+            <th></th>
+            <th>Recipe Name:</th>
+            <th>Total Time</th>
+            <th>Calories per serving</th>
+        </thead>
+        <tbody>
+          <h4><% @recipes.each do |r|%>
+          <tr>
+           <td><img src='<%= r.parsed_response['images'][0]['hostedSmallUrl'] %>'></td>
+           <td><a href="<%= r.parsed_response['attribution']['url'] %>"><%= r.parsed_response['name'] %></a></td>
+           <td><%=r.parsed_response['totalTime']%></td>
+           <td><%=r.parsed_response['nutritionEstimates'][0]['value']%> calories</td>
+           <% end%></h4>
+           </tr>
+       </tbody>
+     </table>
 </div>
+
 
