@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
 before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
 before_action :verify_correct_user, only: [:edit, :update, :destroy]
+before_action :admin_user,     only: :destroy
+
   def new
     @user = User.new
+  end
+
+  def index
+    @users = User.paginate(page: params[:page])
   end
 
   def show
@@ -35,10 +41,10 @@ before_action :verify_correct_user, only: [:edit, :update, :destroy]
     end
   end
 
-  def delete
-    @user.destroy
-    redirect_to root_path
-    flash[:success] = "Sorry to see you go. Hope you come back soon!"
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   private
@@ -58,5 +64,9 @@ before_action :verify_correct_user, only: [:edit, :update, :destroy]
         store_location
         redirect_to login_path, notice: "Please sign in."
       end
+    end
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
     end
 end
