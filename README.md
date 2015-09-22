@@ -8,3 +8,6 @@ accounts to save favorited recipes.
 This app is particularly salient given the increased food waste we face
 and the climate implications of that waste. It also will allow users to
 save money; it is estimated food waste cost Americans $161.6 billion in 2010.
+
+---
+* Trello Board: https://trello.com/b/Ljte2U4E/ga-project-2
