@@ -12,15 +12,17 @@ class RecipesController < ApplicationController
     @recipes = []
     user_recipes = current_user.recipes
     user_recipes.each do |user_recipe|
-      base_url = "http://api.yummly.com/v1/api/recipe"
-      app_id = "a60a3813"
-      app_key = "03a140c9f2bc94ab668e30a025477217"
-      recipe_id = user_recipe.api_id
-
-      url = "#{base_url}/#{recipe_id}?_app_id=#{app_id}&_app_key=#{app_key}"
-
-      @recipes << (HTTParty.get url)
+      @recipes << get_recipe_from_api(user_recipe.api_id)
     end
+  end
+
+  def get_recipe_from_api(recipe_id)
+    base_url = "http://api.yummly.com/v1/api/recipe"
+    app_id = "a60a3813"
+    app_key = "03a140c9f2bc94ab668e30a025477217"
+
+    url = "#{base_url}/#{recipe_id}?_app_id=#{app_id}&_app_key=#{app_key}"
+    HTTParty.get url
   end
 
   # GET /recipes/1

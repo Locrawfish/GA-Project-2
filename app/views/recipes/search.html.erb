@@ -31,8 +31,8 @@
           <td> <%= result["rating"] %></td>
           <td> <%= result["totalTimeInSeconds"]/60 %> minutes</td>
           <td><%= form_for(Recipe.new(api_id: result["id"])) do |f|%>
-              <%= f.hidden_field :api_id, value: result["id"] %>
-              <%= f.submit 'Add recipe'%>
+                <%= f.hidden_field :api_id, value: result["id"] %>
+                <%= f.submit 'Add recipe'%>
               <% end %>
           </td>
           <% end %>
