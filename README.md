@@ -2,7 +2,7 @@
 
 This app aims to allow users to select ingredients they have available, and
 see potential recipes they can create from those ingredients. This version of
-the app will also allow users add dietary restrictions, and have individual
+the app will also allow users to have individual
 accounts to save favorited recipes.
 
 This app is particularly salient given the increased food waste we face
