@@ -9,14 +9,14 @@ This app is particularly salient given the increased food waste we face
 and the climate implications of that waste. It also will allow users to
 save money; it is estimated food waste cost Americans $161.6 billion in 2010.
 
---
+
 ## Technologies used in developement
   * Ruby 2.2.0
   * Rails 4.2.3
   * PostgreSQL Database
   * Bootstrap 3.3.4
 
---
+
 ##Future Plans
   * Allow users to share recipes
   * Allow users to add their own recipes 
