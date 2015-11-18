@@ -15,3 +15,9 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+$(function () { // This will wait for DOMReady
+  $(document).on('scroll', function () {
+    console.log("Scrolling.");
+    $('.navbar-inverse.navbar-fixed-top').css('background', 'rgba(0, 0, 0, 0.8)');
+  });
+});
