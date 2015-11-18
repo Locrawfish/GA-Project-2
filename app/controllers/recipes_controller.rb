@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def search
     @search_text = search_params[:q] || ''
+    @allergy = search_params[:]
     @search_result = Recipe.search(@search_text) unless @search_text.empty?
   end
 
