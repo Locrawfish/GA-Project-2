@@ -19,35 +19,29 @@ $gray-medium-light: #eaeaea;
 
 html, body {
   height: 100%;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Lato', serif;
   font-size:700;
-  background: rgba(0,0,0,0.5) url("food-wood-tomatoes.jpg") no-repeat;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background: 
+  linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.3)
+  ),
+ url("food-wood-tomatoes.jpg") no-repeat;
+  background-size:cover;
   
   }
 
 body {
   padding-top: 60px;
 
+
 }
 
 .background-image{
   font-weight:light;
-  background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.2), 
-      rgba(0, 0, 0, 0.2)
-    ),
-   url("food-wood-tomatoes.jpg") no-repeat;
-  background-size:cover;
   color: white;
   font-size: 2em;
 }
-.vollkorn{
-  font-family: 'Vollkorn', serif;
-}
-
 
 section {
   overflow: auto;
@@ -71,8 +65,8 @@ h5{
 }
 
 .center h1 {
-  margin-bottom: 10px;
-  font-size: 4em;
+  margin: 60px 0;
+  font-size: 3em;
 }
 .wrapper {
   min-height: 100%;
@@ -91,7 +85,12 @@ h5{
             border-radius: 8px;
     }
 #info-box{
-  margin-bottom:50px;
+  border-right: medium white solid;
+}
+
+.tagline{
+  font-family:"Amatic SC", cursive;
+  font-size:1.6em;
 }
 /* navigation*/
 
@@ -251,20 +250,21 @@ footer {
   margin: 60px;
   padding: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
+  color: #fff;
+
 }
 
 footer a {
-  color: #555;
+  color: #fff;
 }
 
 footer a:hover {
-  color: #222;
-  // text-decoration: none;
+  color:white;
+  text-decoration: none;
 }
 
 footer small {
-  float: left;
+  float: none;
 }
 
 footer ul {
@@ -276,7 +276,9 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
-
+.footer-brand{
+  margin-left:450px;
+}
 
 /* miscellaneous */
 // this is to make the debugging look nice
