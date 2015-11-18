@@ -91,7 +91,7 @@ h5{
 /* navigation*/
 
 .nav{
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .dropdown-menu{
@@ -104,25 +104,39 @@ h5{
 }
 
 .navbar-inverse.navbar-fixed-top {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.0);
     border:none;
     color: white;
+    padding-top: 9px;
+    text-transform:uppercase;
+    font-family:'Lato', serif;
 }
+#custom-nav li a{
+  color:white;  
+}
+
+#custom-nav li a:hover{
+  color:white;  
+  text-decoration:overline;
+  text-overline-color:red;
+}
+
+#get-started.btn.btn-xlarge li a:hover{
+  text-transform:none;
+}
+
 /* header */
 
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 2.2em;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+  letter-spacing: -2px;
 }
 
 #logo:hover {
-  color: #fff;
   text-decoration: none;
 }
 
