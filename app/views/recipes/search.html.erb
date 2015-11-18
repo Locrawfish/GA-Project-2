@@ -7,6 +7,18 @@
   <%= form_tag("search", method: "get") do %>
     <%= label_tag(:q, "") %>
     <%= text_field_tag(:q, @search_text) %>
+    <h4>Have an allergy? Let us remove those recipes for you.</h4>
+    <%= check_box_tag(:dairy, "") %>
+    <%= label_tag(:dairy, "Dairy") %>
+    <br>
+    <%= check_box_tag(:gluten, "") %>
+    <%= label_tag(:gluten, "Gluten") %>
+    <br>
+    <%= check_box_tag(:Peanut, "") %>
+    <%= label_tag(:Peanut, "Peanut") %>
+    <br>    
+    <%= check_box_tag(:treenut, "") %>
+    <%= label_tag(:treenut, "Tree nut") %>
     <%= submit_tag("Search") %>
   <% end %>
 

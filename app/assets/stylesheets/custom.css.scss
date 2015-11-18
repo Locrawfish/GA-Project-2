@@ -28,6 +28,7 @@ html, body {
   ),
  url("food-wood-tomatoes.jpg") no-repeat;
   background-size:cover;
+  background-attachment: fixed;
   
   }
 
@@ -86,6 +87,7 @@ h5{
     }
 #info-box{
   border-right: medium white solid;
+  margin-bottom:50px;
 }
 
 .tagline{
@@ -98,8 +100,10 @@ h5{
   font-size: 1em;
 }
 
-.dropdown-menu{
-  font-size: .8em;
+#custom-dropdown li a{
+  font-size: 1.2em;
+  background: rgba(0, 0, 0, 0.2);
+  color:black;
 }
 
 .btn.btn-xlarge.btn-info{
@@ -129,12 +133,17 @@ h5{
 #custom-nav li a:hover{
   color:white;  
   text-decoration:overline;
-  text-overline-color:red;
   background:#40bf80;
 }
+
+#get-started.btn.btn-xlarge {
+  margin-left: 40px;  
+}
+
 #get-started.btn.btn-xlarge li a{
   text-decoration:none;
   background:#40bf80;
+
 }
 
 #get-started.btn.btn-xlarge li a:hover{
@@ -220,6 +229,7 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+  color:black;
 }
 
 #error_explanation {

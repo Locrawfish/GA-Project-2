@@ -1,13 +1,14 @@
 class Recipe < ActiveRecord::Base
 
   require "httparty"
+  require "uri"
   has_and_belongs_to_many :users
   validates :api_id, presence: true
 
 
 
   def self.search(ingredient)
-
+    ingredient = URI.escape(ingredient)
     base_url = "http://api.yummly.com/v1/api/recipes"
     app_id = "a60a3813"
     app_key = "03a140c9f2bc94ab668e30a025477217"
