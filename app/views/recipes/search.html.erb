@@ -8,10 +8,10 @@
     <%= label_tag(:q, "") %>
     <%= text_field_tag(:q, @search_text) %>
     <h4>Have an allergy? Let us remove those recipes for you.</h4>
-    <%= check_box_tag("allergies[Dairy]", "396^Dairy-Free") %>
+    <%= check_box_tag("allergies[Dairy]", "396^Dairy-Free", params[:allergies].present? && params[:allergies][:Dairy].present?) %>
     <%= label_tag(:dairy, "Dairy") %>
     <br>
-    <%= check_box_tag("allergies[Gluten]", "393^Gluten-Free") %>
+    <%= check_box_tag("allergies[Gluten]", "393^Gluten-Free", params[:allergies].present? &&params[:allergies][:Gluten].present?) %>
     <%= label_tag(:gluten, "Gluten") %>
     <!-- <br> -->
     <%#= check_box_tag("allergies[Peanut]", "Peanut-Free") %>
