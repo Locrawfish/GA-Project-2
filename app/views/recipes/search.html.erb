@@ -8,17 +8,17 @@
     <%= label_tag(:q, "") %>
     <%= text_field_tag(:q, @search_text) %>
     <h4>Have an allergy? Let us remove those recipes for you.</h4>
-    <%= check_box_tag(:dairy, "") %>
+    <%= check_box_tag("allergies[Dairy]", "396^Dairy-Free") %>
     <%= label_tag(:dairy, "Dairy") %>
     <br>
-    <%= check_box_tag(:gluten, "") %>
+    <%= check_box_tag("allergies[Gluten]", "393^Gluten-Free") %>
     <%= label_tag(:gluten, "Gluten") %>
-    <br>
-    <%= check_box_tag(:Peanut, "") %>
-    <%= label_tag(:Peanut, "Peanut") %>
-    <br>    
-    <%= check_box_tag(:treenut, "") %>
-    <%= label_tag(:treenut, "Tree nut") %>
+    <!-- <br> -->
+    <%#= check_box_tag("allergies[Peanut]", "Peanut-Free") %>
+    <%#= label_tag(:peanut, "Peanut") %>
+    <!-- <br>     -->
+    <%#= check_box_tag("allergies[Tree-Nut]", "Tree nut-Free") %>
+    <%#= label_tag(:treenut, "Tree nut") %>
     <%= submit_tag("Search") %>
   <% end %>
 
