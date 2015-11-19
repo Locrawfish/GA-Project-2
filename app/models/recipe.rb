@@ -12,7 +12,7 @@ class Recipe < ActiveRecord::Base
     allergy = allergies.values
     allergies_params = []
     allergy.each do |a|
-      allergies_params << "allowedAllergy[]=#{a}" 
+      allergies_params << URI.escape("allowedAllergy[]=#{a}")
     end
 
     comb_allergies=allergies_params.join('&')
@@ -22,7 +22,7 @@ class Recipe < ActiveRecord::Base
     app_key = "03a140c9f2bc94ab668e30a025477217"
 
     url = "#{base_url}?_app_id=#{app_id}&_app_key=#{app_key}"
-
+    
     HTTParty.get ("#{url}&q=#{ingredient}&#{comb_allergies}")
     end
 
